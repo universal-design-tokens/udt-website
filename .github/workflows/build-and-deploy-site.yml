@@ -6,21 +6,31 @@ on:
   pull_request:
     branches: [ master ]
 
-jobs:
+permissions:
+  contents: write
 
+jobs:
   build:
     name: Build site
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Setup Node
+      uses: actions/setup-node@v1
       with:
         node-version: 16.x
-    - run: npm ci
-    - run: npm run build
 
-    # - name: Deploy
-    #   uses: JamesIves/github-pages-deploy-action@v4.3.3
-    #   with:
-    #     branch: gh-pages # The branch the action should deploy to.
-    #     folder: build # The folder the action should deploy.
+    - name: Install deps
+      run: npm ci
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: dist # The folder the action should deploy.
+      if: ${{ github.event_name == 'push' }} # Skip this step for PRs
