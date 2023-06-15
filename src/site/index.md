@@ -2,32 +2,16 @@
 title: Universal Design Tokens
 layout: html.njk
 ---
-## What is this?
+The Universal Design Tokens (UDT) project aims to provide a suite of JavaScript libraries that simplify supporting the [Design Tokens Community Group (DTCG) file format](https://tr.designtokens.org/format/) in your applications.
 
-Universal Design Tokens (UDT) is an open-standard file format for expressing design token data.
+UDT libraries handle the lower level concerns like parsing and serialising DTCG files, and let you access and manipulate design token data via a higher-level API called the Token Object Model (TOM).
 
-The UDT project is only just starting out, so at this point we're mainly looking for feedback and contributors. Visit the [UDT GitHub organisation](https://github.com/universal-design-tokens) to get involved!
+## Current status
 
-## What problem does it solve?
+UDT is still under development and has not yet made an initial release. You can browse the work-in-progress code in the [UDT GitHub repo](https://github.com/universal-design-tokens/udt).
 
-With the rise of design systems several tools that export, convert or import design token data have been created. Unfortunately, each one uses its own, custom format for expressing that design token data. This limits interoperability between such tools and creates additional work for those wishing to integrate them into their design systems.
+Please be aware that UDT is currently a hobby project of [James Nash](https://cirrus.twiddles.com/), so progress is slow and sporadic. Feedback, ideas and contributions are welcome. If UDT's vision excites you, please get involved! However, if you're looking to add support for DTCG files in your app _right now_, you'll need to look elsewhere for the time being.
 
-While most existing tools use simple, self-explanatory JSON or YAML-based formats, the structure of the data within those files is nonetheless custom. Documentation of those file formats are frequently limited or absent completely. This means that others wishing to connect different tools, generate data or process data need to reverse engineer those formats and write their own bespoke code to work with it.
+## Wasn't UDT going to be a file format?
 
-Wouldn't it be great if all those tools shared the same file format for design token data? Different tools could then easily be connected in new and interesting ways simply by taking files saved by one and loading them into another. Life would also become easier for developers and companies wishing to make new tools that do interesting things with design token data since they could focus on the tool itself and simply reuse the existing file format.
-
-We could stop reinventing wheels and spend more time designing and building cool things.
-
-After all, isn't that part of the ethos that underpins all design systems?
-
-This [UDT presentation](https://www.slideshare.net/c1rrus/universal-design-tokens) provides some additional background about this project.
-
-## How will it work?
-
-At its core, Universal Design Tokens will be a format specification and schema. The goal is to document exactly how UDT files are formatted, and how parsers and serialisers should behave.
-
-The current plan (which is subject to change) is for UDT files to be [JSON files](https://www.json.org/) with a well-defined structure that will be specified by a [JSON Schema](http://json-schema.org/). If you'd like to get involved, head over to the [spec repo](https://github.com/universal-design-tokens/udt/tree/master/packages/spec) on GitHub.
-
-In parallel, a reference implementation of a software library for parsing and seralising UDT files will be developed in JavaScript. Visit the [lib repo](https://github.com/universal-design-tokens/udt/tree/master/packages/lib) on GitHub to find out more and get involved.
-
-We hope that a clear spec and a working implementation will inspire others to build an eco-system of tools and software libraries that interchange UDT files and enable design system makers to do incredible things!
+Originally, yes. However this is no longer the case. When James Nash started the UDT project in 2018, the [Design Tokens Community Group](https://www.designtokens.org/) did not yet exist. The [UDT project's original aim](/original-plan/) was therefore to [specify a standard file format for design tokens](https://github.com/universal-design-tokens/udt/blob/legacy-udt-libs/packages/spec/docs/README.md) and provide libraries for working with those files. When the DTCG was formed in 2019 and James joined the group as one the format editors, creating a separate UDT file format became redundant. This project therefore pivoted to its new aim of building a suite of libaries that simplify working with DTCG files. 
