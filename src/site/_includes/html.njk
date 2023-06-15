@@ -1,0 +1,38 @@
+---js
+{
+  currentYear: (new Date()).getFullYear()
+}
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% if page.url != "/" %}{{ title }}{% endif %}Universal Design Tokens</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  </head>
+  <body>
+    <header role="banner">
+      <a>
+        <img src="/udt-logo.svg" alt="UDT logo" class="logo">
+      </a>
+      <h1>{{ title }}</h1>
+    </header>
+    <main>
+      {{ content | safe }}
+    </main>
+    <footer>
+      &copy; 2018 - {{ currentYear }} <a href="https://cirrus.twiddles.com/">James Nash</a>.
+    </footer>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114956912-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-114956912-1');
+    </script>
+  </body>
+</html>
